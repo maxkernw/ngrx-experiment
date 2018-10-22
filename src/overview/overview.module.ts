@@ -8,7 +8,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { SightingComponent } from './components/sighting/sighting.component';
 import { OverviewComponent } from './components/overview/overview.component';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+import { OverviewRoutingModule } from './routing/overview-routing.module';
 
 export const ROUTES: Routes = [
 	{
@@ -23,7 +24,7 @@ export const ROUTES: Routes = [
 		CommonModule,
 		ReactiveFormsModule,
 		HttpClientModule,
-		RouterModule.forChild(ROUTES),
+		OverviewRoutingModule,
 		StoreModule.forFeature('overview', reducers),
 	],
 })
