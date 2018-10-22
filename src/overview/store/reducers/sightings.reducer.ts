@@ -6,7 +6,7 @@ export interface SightingsState {
 	loaded: boolean;
 	loading: boolean;
 }
-const model: Sighting = {
+const initialModelMock: Sighting = {
 	author: 'name',
 	commonName: 'string',
 	scientificName: 'string',
@@ -19,7 +19,7 @@ const model: Sighting = {
 };
 
 export const initialState: SightingsState = {
-	data: [model],
+	data: [initialModelMock],
 	loaded: false,
 	loading: false
 };
@@ -53,3 +53,7 @@ export function reducer(
 	}
 	return state;
 }
+
+export const getSightingsLoading = (state: SightingsState) => state.loading;
+export const getSightingsLoaded = (state: SightingsState) => state.loaded;
+export const getSightings = (state: SightingsState) => state.data;

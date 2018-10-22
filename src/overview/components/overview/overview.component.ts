@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../store';
+import { getAllSightings, OverviewState } from '../../store';
+import { Observable } from 'rxjs';
+import { Sighting } from 'src/overview/model/sighting.model';
 
 @Component({
 	selector: 'app-overview',
 	templateUrl: './overview.component.html',
 })
 export class OverviewComponent implements OnInit {
+	sightings$: Observable<Sighting[]>;
 
-	constructor(private store: Store<fromStore.OverviewState>) { }
+	constructor(private store: Store<OverviewState>) { }
 
 	ngOnInit() {
-		this.store.select('overview').subscribe(state => {
-			console.log(state);
-		});
+		this.sightings$ = this.store.select(getAllSightings);
 	}
 
 }

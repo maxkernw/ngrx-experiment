@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Sighting } from 'src/overview/model/sighting.model';
 
 @Component({
 	selector: 'app-sighting',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./sighting.component.css']
 })
 export class SightingComponent implements OnInit {
+
+	@Input() sighting: Sighting;
 
 	constructor() { }
 

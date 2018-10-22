@@ -8,15 +8,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { SightingComponent } from './components/sighting/sighting.component';
 import { OverviewComponent } from './components/overview/overview.component';
-import { Routes } from '@angular/router';
 import { OverviewRoutingModule } from './routing/overview-routing.module';
+import { OVERVIEW_STORE_NAME } from './store/consts/overview.consts';
 
-export const ROUTES: Routes = [
-	{
-		path: '',
-		component: OverviewComponent,
-	}
-];
 
 @NgModule({
 	declarations: [SightingComponent, OverviewComponent],
@@ -25,7 +19,7 @@ export const ROUTES: Routes = [
 		ReactiveFormsModule,
 		HttpClientModule,
 		OverviewRoutingModule,
-		StoreModule.forFeature('overview', reducers),
+		StoreModule.forFeature(OVERVIEW_STORE_NAME, reducers),
 	],
 })
 export class OverviewModule { }

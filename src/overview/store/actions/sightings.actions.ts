@@ -11,16 +11,12 @@ export class LoadSightings implements Action {
 
 export class LoadSightingsFail implements Action {
 	readonly type = LOAD_SIGHTINGS_FAIL;
-	constructor(public payload: any) {
-
-	}
+	constructor(public payload: any) { }
 }
 
 export class LoadSightingsSuccess implements Action {
 	readonly type = LOAD_SIGHTINGS_SUCCESS;
-	constructor(public payload: Sighting[]) {
-
-	}
+	constructor(public payload: Sighting[]) { }
 }
 
 // Action Types
