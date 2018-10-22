@@ -7,6 +7,7 @@ export const LOAD_SIGHTINGS_SUCCESS = '[Sightings] Load Sightings Success';
 
 export class LoadSightings implements Action {
 	readonly type = LOAD_SIGHTINGS;
+	constructor(public payload: any) {}
 }
 
 export class LoadSightingsFail implements Action {

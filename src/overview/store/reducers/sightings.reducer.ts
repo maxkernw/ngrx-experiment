@@ -6,20 +6,9 @@ export interface SightingsState {
 	loaded: boolean;
 	loading: boolean;
 }
-const initialModelMock: Sighting = {
-	author: 'name',
-	commonName: 'string',
-	scientificName: 'string',
-	sightingObservers: 'string',
-	sightingState: 'string',
-	owner: 'string',
-	site: {
-		coordinates: []
-	}
-};
 
 export const initialState: SightingsState = {
-	data: [initialModelMock],
+	data: [],
 	loaded: false,
 	loading: false
 };
@@ -29,7 +18,6 @@ export function reducer(
 	action: fromSightings.SightingsAction
 ): SightingsState {
 
-	console.log(action, 'action');
 	switch (action.type) {
 		case fromSightings.LOAD_SIGHTINGS: {
 			return {
@@ -38,11 +26,12 @@ export function reducer(
 			};
 		}
 		case fromSightings.LOAD_SIGHTINGS_SUCCESS: {
-			console.log(action.payload, 'test');
+			const data = action.payload;
 			return {
 				...state,
 				loading: false,
-				loaded: true
+				loaded: true,
+				data
 			};
 		}
 		case fromSightings.LOAD_SIGHTINGS_FAIL: {
@@ -55,6 +44,7 @@ export function reducer(
 	}
 	return state;
 }
+
 
 export const getSightingsLoading = (state: SightingsState) => state.loading;
 export const getSightingsLoaded = (state: SightingsState) => state.loaded;

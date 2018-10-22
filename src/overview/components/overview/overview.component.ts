@@ -10,13 +10,13 @@ import { Sighting } from 'src/overview/model/sighting.model';
 })
 export class OverviewComponent implements OnInit {
 	sightings$: Observable<Sighting[]>;
+	query = '?dateFrom=2016-10-01&dateTo=2018-10-02';
 
 	constructor(private store: Store<OverviewState>) { }
 
 	ngOnInit() {
 		this.sightings$ = this.store.select(getAllSightings);
-		console.log('dispatch');
-		this.store.dispatch(new LoadSightings());
+		this.store.dispatch(new LoadSightings(this.query));
 	}
 
 }

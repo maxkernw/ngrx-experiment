@@ -10,13 +10,12 @@ import { environment } from 'src/environments/environment';
 	providedIn: 'root'
 })
 export class HttpService implements IHttpService {
-	private _baseUrl = environment.baseUrl;
 
 	constructor(private http: HttpClient) {
 	}
 
-	get<T>(path: string, headers?: HttpHeaders): Observable<T> {
-		return this.http.get<T>(`${this._baseUrl}/${path}`, {
+	get<T>(url: string, headers?: HttpHeaders): Observable<T> {
+		return this.http.get<T>(`${url}`, {
 			headers: headers
 		}).pipe(catchError((error: any) => Observable.throw(error.json())));
 	}
