@@ -6,7 +6,8 @@ import { Environment } from './environment.interface';
 
 export const environment: Environment = {
 	production: false,
-	baseUrl: ''
+	baseUrl: 'https://api.artdatabanken.se/sandbox-observations-r',
+	key: 'a1ea858711ac4f96a6f703c7b237e35f'
 };
 
 /*

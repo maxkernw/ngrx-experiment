@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getAllSightings, OverviewState } from '../../store';
+import { getAllSightings, OverviewState, LoadSightings } from '../../store';
 import { Observable } from 'rxjs';
 import { Sighting } from 'src/overview/model/sighting.model';
 
@@ -15,6 +15,7 @@ export class OverviewComponent implements OnInit {
 
 	ngOnInit() {
 		this.sightings$ = this.store.select(getAllSightings);
+		this.store.dispatch(new LoadSightings());
 	}
 
 }

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IHttpService } from './http.service.interface';
-import { environment } from 'src/environments/environment.prod';
 import { catchError } from 'rxjs/operators';
 
 import 'rxjs/add/observable/throw';
@@ -11,10 +10,11 @@ import 'rxjs/add/observable/throw';
 	providedIn: 'root'
 })
 export class HttpService implements IHttpService {
+	private _baseUrl: string;
 
-	private readonly baseUrl = environment.baseUrl;
-
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient, private baseUrl: string) {
+		this._baseUrl = baseUrl;
+	}
 
 	get<T>(path: string, headers?: HttpHeaders): Observable<T> {
 		return this.http.get<T>(`${this.baseUrl}/${path}`, {
