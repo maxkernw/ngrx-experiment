@@ -29,6 +29,7 @@ export function reducer(
 	action: fromSightings.SightingsAction
 ): SightingsState {
 
+	console.log(action, 'action');
 	switch (action.type) {
 		case fromSightings.LOAD_SIGHTINGS: {
 			return {
@@ -37,6 +38,7 @@ export function reducer(
 			};
 		}
 		case fromSightings.LOAD_SIGHTINGS_SUCCESS: {
+			console.log(action.payload, 'test');
 			return {
 				...state,
 				loading: false,

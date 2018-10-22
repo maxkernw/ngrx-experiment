@@ -15,6 +15,7 @@ export class OverviewComponent implements OnInit {
 
 	ngOnInit() {
 		this.sightings$ = this.store.select(getAllSightings);
+		console.log('dispatch');
 		this.store.dispatch(new LoadSightings());
 	}
 

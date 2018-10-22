@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../../core/http/http.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class SightingsService extends HttpService {
 
 	constructor(http: HttpClient) {
-		super(http, environment.baseUrl);
+		console.log('test');
+		super(http);
 	}
 }
